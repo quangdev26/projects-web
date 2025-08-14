@@ -1,0 +1,149 @@
+/* Cài đặt chung cho toàn trang */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Giúp việc tính toán kích thước dễ dàng hơn */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Màu nền tối */
+    /* Bạn có thể dùng ảnh nền thay vì màu */
+    /* background-image: url('path/to/your/background-image.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Giữ ảnh nền cố định khi cuộn trang */
+    color: #ffffff; /* Màu chữ mặc định là trắng */
+    
+    /* Sử dụng Flexbox để căn chỉnh toàn bộ nội dung */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao màn hình */
+    align-items: center; /* Căn giữa theo chiều ngang */
+}
+
+/* Dòng quảng cáo chạy chữ */
+.marquee {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee-animation 20s linear infinite;
+}
+
+/* Hiệu ứng chạy chữ */
+@keyframes marquee-animation {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Khối nội dung chính */
+.profile-container {
+    flex-grow: 1; /* Giúp khối này lấp đầy không gian còn lại */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center;   /* Căn giữa theo chiều ngang */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Ảnh đại diện */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Bo tròn ảnh */
+    border: 5px solid #ffffff; /* Viền trắng cho ảnh */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Đổ bóng cho ảnh nổi bật */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo */
+}
+
+/* Khối chứa tên và tích xanh */
+.name-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa tên và tích xanh */
+    margin-top: 20px;
+}
+
+.name-container h1 {
+    font-size: 2em; /* Kích thước chữ cho tên */
+}
+
+.verified-badge {
+    width: 24px;
+    height: 24px;
+    color: #1da1f2; /* Màu xanh của Twitter */
+}
+
+/* Khối chứa các nút liên kết */
+.links-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 400px; /* Giới hạn chiều rộng của các nút */
+}
+
+.link-button {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 30px; /* Bo tròn các góc của nút */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển động */
+}
+
+.link-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05); /* Phóng to nhẹ khi di chuột vào */
+}
+
+/* Chân trang */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.social-links a:hover {
+    color: #007bff; /* Đổi màu khi di chuột vào */
+    transform: scale(1.2); /* Phóng to icon */
+}
+
+.copyright {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Tối ưu cho màn hình điện thoại */
+@media (max-width: 600px) {
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+
+    .name-container h1 {
+        font-size: 1.5em;
+    }
+
+    .profile-container {
+        padding: 15px;
+    }
+}
